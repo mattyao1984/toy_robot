@@ -1,0 +1,43 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mattyao1984\/Documents\/Freelance\%20Work\/anz_test\/app\/sass\/_global\.sass}line{font-family:\000031}}
+html, body {
+  background: #d8d8d8;
+  font-family: "Open Sans", sans-serif;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mattyao1984\/Documents\/Freelance\%20Work\/anz_test\/app\/sass\/_global\.sass}line{font-family:\000035}}
+html h1, html h2, html h3, html h4, html h5, html h6, body h1, body h2, body h3, body h4, body h5, body h6 {
+  padding: 0;
+  margin: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mattyao1984\/Documents\/Freelance\%20Work\/anz_test\/app\/sass\/_global\.sass}line{font-family:\000039}}
+html .header, body .header {
+  height: 50px;
+  background: #333;
+  width: 100%;
+  color: #ffffff;
+  line-height: 50px;
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mattyao1984\/Documents\/Freelance\%20Work\/anz_test\/app\/sass\/_global\.sass}line{font-family:\0000317}}
+html .container, body .container {
+  width: 940px;
+  margin: 0 auto;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mattyao1984\/Documents\/Freelance\%20Work\/anz_test\/app\/sass\/_global\.sass}line{font-family:\0000321}}
+html .container .content, body .container .content {
+  background: #ffffff;
+  padding: 20px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mattyao1984\/Documents\/Freelance\%20Work\/anz_test\/app\/sass\/_global\.sass}line{font-family:\0000325}}
+html .container .content h2, body .container .content h2 {
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 1.25px;
+  color: #333;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mattyao1984\/Documents\/Freelance\%20Work\/anz_test\/app\/sass\/_global\.sass}line{font-family:\0000331}}
+html .footer, body .footer {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 13px;
+}
