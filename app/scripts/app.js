@@ -9,19 +9,20 @@
  * Main module of the application.
  */
 angular
-  .module('freelanceWorkApp', [
+  .module('toyRobotApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'controllers'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/home.html',
+        controller: 'homeController'
       })
       .otherwise({
         redirectTo: '/'

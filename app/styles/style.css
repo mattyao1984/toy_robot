@@ -1,14 +1,109 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mattyao1984\/Documents\/Freelance\%20Work\/anz_test\/app\/sass\/_global\.sass}line{font-family:\000031}}
+/* Form */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_animations\.sass}line{font-family:\000031}}
+.stepFade {
+  -webkit-transition: all, 1s, linear;
+  -moz-transition: all, 1s, linear;
+  -ms-transition: all, 1s, linear;
+  -o-transition: all, 1s, linear;
+  transition: all, 1s, linear;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_animations\.sass}line{font-family:\000034}}
+.stepFade.ng-hide {
+  opacity: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_form\.sass}line{font-family:\000031}}
+form {
+  border: 1px solid #d8d8d8;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_form\.sass}line{font-family:\000036}}
+input[type="text"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  display: block;
+  font-size: 14px;
+  background: #ffffff;
+  background-image: none;
+  width: 100%;
+  border-radius: 0;
+  height: 40px;
+  line-height: 40px;
+  padding: 5px 10px;
+  color: #686868;
+  border: 1px solid #cccccc;
+  font-weight: 800;
+  -webkit-transition: border-color, ease-in-out, 0.15s;
+  -moz-transition: border-color, ease-in-out, 0.15s;
+  -ms-transition: border-color, ease-in-out, 0.15s;
+  -o-transition: border-color, ease-in-out, 0.15s;
+  transition: border-color, ease-in-out, 0.15s;
+  -webkit-transition: box-shadow, ease-in-out, 0.15s;
+  -moz-transition: box-shadow, ease-in-out, 0.15s;
+  -ms-transition: box-shadow, ease-in-out, 0.15s;
+  -o-transition: box-shadow, ease-in-out, 0.15s;
+  transition: box-shadow, ease-in-out, 0.15s;
+  resize: none;
+  outline: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_form\.sass}line{font-family:\0000329}}
+input[type="text"]:disabled {
+  background: #d8d8d8;
+  color: #fff;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_form\.sass}line{font-family:\0000333}}
+input[type="text"].short-textfield {
+  width: 60px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_form\.sass}line{font-family:\0000336}}
+button {
+  outline: none;
+  margin-right: 5px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_form\.sass}line{font-family:\0000340}}
+select {
+  border-radius: 0px;
+  color: #333;
+  border: 1px solid #aaaaaa;
+  margin: 0 auto;
+  font-size: 14px;
+  background: #ffffff;
+  background-image: none;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  font-weight: 800;
+  -webkit-transition: border-color, ease-in-out, 0.15s;
+  -moz-transition: border-color, ease-in-out, 0.15s;
+  -ms-transition: border-color, ease-in-out, 0.15s;
+  -o-transition: border-color, ease-in-out, 0.15s;
+  transition: border-color, ease-in-out, 0.15s;
+  -webkit-transition: box-shadow, ease-in-out, 0.15s;
+  -moz-transition: box-shadow, ease-in-out, 0.15s;
+  -ms-transition: box-shadow, ease-in-out, 0.15s;
+  -o-transition: box-shadow, ease-in-out, 0.15s;
+  transition: box-shadow, ease-in-out, 0.15s;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\000031}}
 html, body {
   background: #d8d8d8;
   font-family: "Open Sans", sans-serif;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mattyao1984\/Documents\/Freelance\%20Work\/anz_test\/app\/sass\/_global\.sass}line{font-family:\000035}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\000035}}
 html h1, html h2, html h3, html h4, html h5, html h6, body h1, body h2, body h3, body h4, body h5, body h6 {
   padding: 0;
   margin: 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mattyao1984\/Documents\/Freelance\%20Work\/anz_test\/app\/sass\/_global\.sass}line{font-family:\000039}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\000039}}
 html .header, body .header {
   height: 50px;
   background: #333;
@@ -17,25 +112,86 @@ html .header, body .header {
   line-height: 50px;
   text-align: center;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mattyao1984\/Documents\/Freelance\%20Work\/anz_test\/app\/sass\/_global\.sass}line{font-family:\0000317}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\0000317}}
 html .container, body .container {
   width: 940px;
   margin: 0 auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mattyao1984\/Documents\/Freelance\%20Work\/anz_test\/app\/sass\/_global\.sass}line{font-family:\0000321}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\0000321}}
 html .container .content, body .container .content {
   background: #ffffff;
   padding: 20px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mattyao1984\/Documents\/Freelance\%20Work\/anz_test\/app\/sass\/_global\.sass}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\0000325}}
 html .container .content h2, body .container .content h2 {
   font-size: 18px;
   line-height: 25px;
   letter-spacing: 1.25px;
   color: #333;
+  margin-bottom: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mattyao1984\/Documents\/Freelance\%20Work\/anz_test\/app\/sass\/_global\.sass}line{font-family:\0000331}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\0000332}}
+html .container .content h4, body .container .content h4 {
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\0000338}}
+html .container .content button, body .container .content button {
+  margin-top: 10px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\0000341}}
+html .container .content .robot-panel, body .container .content .robot-panel {
+  margin: 30px 0;
+  padding-bottom: 20px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\0000345}}
+html .container .content .robot-panel .robot-welcome, body .container .content .robot-panel .robot-welcome {
+  text-align: center;
+  margin: 20px auto;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\0000351}}
+html .container .content .output-box .reports, body .container .content .output-box .reports {
+  height: 300px;
+  background: #000;
+  overflow-y: scroll;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\0000356}}
+html .container .content .output-box h4, body .container .content .output-box h4 {
+  width: 100%;
+  background: #ababab;
+  color: #ffffff;
+  line-height: 30px;
+  text-align: center;
+  height: 30px;
+  text-transform: uppercase;
+  margin: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\0000366}}
+html .container .content .output-box ul, body .container .content .output-box ul {
+  padding: 10px;
+  margin: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\0000370}}
+html .container .content .output-box ul li, body .container .content .output-box ul li {
+  list-style: none;
+  display: block;
+  font-size: 13px;
+  line-height: 20px;
+  margin: 5px 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\0000377}}
+html .container .content .output-box ul li.normal, body .container .content .output-box ul li.normal {
+  color: #00ff00;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\0000380}}
+html .container .content .output-box ul li.error, body .container .content .output-box ul li.error {
+  color: #d80000;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/molianyan520\/Documents\/Freelance\/toy_robot\/app\/sass\/_global\.sass}line{font-family:\0000383}}
 html .footer, body .footer {
+  background: #fff;
   text-align: center;
   height: 40px;
   line-height: 40px;
