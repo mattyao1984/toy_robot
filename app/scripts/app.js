@@ -15,6 +15,8 @@ angular
     'services'
   ])
   .config(function ($routeProvider, $httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/home.html',

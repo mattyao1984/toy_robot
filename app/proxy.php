@@ -1,5 +1,4 @@
 <?php
-session_start();
 class Curl {
     /**
      * @param $url
@@ -42,9 +41,9 @@ class Curl {
     }
 }
 
-
 $curl  = new Curl();
-$reply = "Invalid verb";
+$reply = 'Empty Object.';
+
 if($_POST)
 {
 
@@ -62,7 +61,6 @@ if($_POST)
     $reply = $curl->curl_post_simple($url, $params);
 
 }
-
 echo $reply;
 exit;
 

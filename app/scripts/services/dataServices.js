@@ -2,7 +2,7 @@
 
 angular.module('services', [])
 .constant('BASE_URL', 'http://toyrobotservice-env.elasticbeanstalk.com/webapi')
-.constant('PROXY_URL', './proxy.php')
+.constant('PROXY_URL', 'proxy.php')
 .factory('dataService', ['$http','$q', 'BASE_URL', 'PROXY_URL', function($http, $q, BASE_URL, PROXY_URL) {
 	var robotName = '';
 
@@ -41,13 +41,12 @@ angular.module('services', [])
 		placeRobot: function(position_data){
 			console.log(position_data);
 			var req = {
-        method: 'POST',  
+        method: 'post',  
+        url: BASE_URL + '/robot/' + robotName + '/position',
         headers: {
-        	'Content-type': 'application/json'
+        	'Content-Type': 'application/json'
         },
-        url: PROXY_URL,
         data: {
-        	csurl: BASE_URL + '/robot/' + robotName + '/position',
         	x_pos: parseInt(position_data.x_pos),
         	y_pos: parseInt(position_data.y_pos),
         	angle: position_data.angle

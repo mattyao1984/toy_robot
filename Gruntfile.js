@@ -6,7 +6,11 @@
 // 'test/spec/{,*/}*.js'
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
-
+var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
+var gateway = require('gateway');
+var mountFolder = function (connect, dir) {
+    return connect.static(require('path').resolve(dir));
+};
 module.exports = function (grunt) {
 
   // Load grunt tasks automatically
@@ -77,12 +81,16 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
-              connect.static('.tmp'),
+              lrSnippet,
+              gateway(__dirname + '/app', {
+                  '.php': 'php-cgi'
+              }),
               connect().use(
                 '/bower_components',
                 connect.static('./bower_components')
               ),
-              connect.static(appConfig.app)
+              mountFolder(connect, '.tmp'),
+              mountFolder(connect, 'app')
             ];
           }
         }
