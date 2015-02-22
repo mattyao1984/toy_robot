@@ -1,11 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name freelanceWorkApp
- * @description
- * # freelanceWorkApp
- *
+/*
  * Main module of the application.
  */
 angular
@@ -16,9 +11,10 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'controllers'
+    'controllers',
+    'services'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $httpProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/home.html',
@@ -28,3 +24,4 @@ angular
         redirectTo: '/'
       });
   });
+

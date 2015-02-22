@@ -14,6 +14,19 @@
 
 Enjoy!
 
+### How can I play this toy robot? ###
+
+- Create your robot name first
+- Place the robot at a valid position (0,0) - (5,5) with a direction
+- Rotate your robot by turning left or right
+- Move your robot towards the direction by one step
+- Check the robot report logs
+
+### How can I test? ###
+
+- Make sure you have run "npm install" to install all the node modules
+- Run "grunt test" to see the test results
+
 ### Libraries & toolsets Included ###
 
 - jQuery
@@ -26,6 +39,8 @@ Enjoy!
   - ng-route
   - ng-touch
 - UnderscoreJS
+- Karma
+- Bower
 
 ### Who do I talk to? ###
 

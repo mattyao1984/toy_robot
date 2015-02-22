@@ -26,8 +26,13 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
-      'app/scripts/**/*.js',
-      'test/mock/**/*.js',
+      'bower_components/jquery/dist/jquery.js',
+      'bower_components/bootstrap/dist/js/bootstrap.js',
+      'bower_components/underscore/underscore.js',
+      'app/scripts/services/*.js',
+      'app/scripts/controllers/*.js',
+      'app/scripts/lib/**/*.js',
+      'app/scripts/*.js',
       'test/spec/**/*.js'
     ],
 

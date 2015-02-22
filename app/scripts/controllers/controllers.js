@@ -5,141 +5,129 @@
  * @name toyRobotApp.controller: homeController
  */
 angular.module('controllers', [])
-  .controller('homeController', function ($scope) {
+  .controller('homeController', ['$scope', 'dataService', function ($scope, dataService) {
+  	//Define the grid bounds
   	$scope.bounds = {
-  		max_x: 5,
+  		max_x: 4,
   		min_x: 0,
-  		max_y: 5,
+  		max_y: 4,
   		min_y: 0
   	};
 
+  	//Init robot position
   	$scope.robot = {
   		position: {},
   		isSet: false
   	};
-  	$scope.isCreated = false;
-  	$scope.logs = [];
-  	$scope.newPosition = {};
-  	$scope.angles = ['NORTH', 'EAST', 'SOUTH', 'WEST'];
-
+  	$scope.nameExisted = false;
+  	$scope.isCreated = false;                              //Indicate if the robot has been created
+  	$scope.logs = [];                                      //Store all the logs data
+  	$scope.newPosition = {};                               //Store the new position
+  	$scope.angles = ['NORTH', 'EAST', 'SOUTH', 'WEST'];    //Angles array for dropdown
+    
+  	/* Create Robot function */
+  	//Will check its valid name first
   	$scope.create = function(){
+  		$scope.nameExisted = false;
   		if($scope.robot.name === ''){
   			alert('Please enter the name');
   		}else{
-	  		$scope.isCreated = true;
-	  		$scope.logs.unshift({
-	  			time: moment().format('MM/DD/YYYY h:mm:ss a'),
-	  			events: 'Robot ' + $scope.robot.name + ' has been created.',
-	  			_class: 'normal'
-	  		});
+  			dataService.createRobot($scope.robot.name).then(function(res){
+  				$scope.isCreated = true;
+		  		$scope.logs.unshift({
+		  			time: moment().format('MM/DD/YYYY h:mm:ss a'),
+		  			events: 'Robot ' + $scope.robot.name + ' has been created.',
+		  			_class: 'normal'
+		  		});
+  			}, function(error){
+  				if(error.status === 303){
+  					$scope.nameExisted = true;
+  				}
+  			});
 	  	}
   	};
 
+  	/* Place robot function */
+  	//Will check if the new position to be placed is valid
   	$scope.place = function(){
   		var now = new Date();
 
   		//Check if the position is valid
-  		if($scope.newPosition.xPos !== undefined && $scope.newPosition.yPos !== undefined && $scope.newPosition.angle !== undefined){
-	  		if($scope.checkPosition($scope.newPosition, $scope.bounds)){
-		  		$scope.robot.position.xPos = $scope.newPosition.xPos;
-		  		$scope.robot.position.yPos = $scope.newPosition.yPos;
+  		if($scope.newPosition.x_pos !== undefined && $scope.newPosition.y_pos !== undefined && $scope.newPosition.angle !== undefined){
+  			dataService.placeRobot($scope.newPosition).then(function(res){
+  				console.log(res);
+  			});
+
+	  		/*if($scope.checkPosition($scope.newPosition, $scope.bounds)){
+		  		$scope.robot.position.x_pos = $scope.newPosition.x_pos;
+		  		$scope.robot.position.y_pos = $scope.newPosition.y_pos;
 		  		$scope.robot.position.angle = $scope.newPosition.angle;
-		  		$scope.robot.position.isSet = true;
+		  		$scope.robot.isSet = true;
 
 		  		$scope.logs.unshift({
 		  			time: moment().format('MM/DD/YYYY h:mm:ss a'),
-		  			events: 'Robot has been placed at (' + $scope.robot.position.xPos + ',' + $scope.robot.position.yPos + '), ' + $scope.robot.position.angle + '.',
+		  			events: 'Robot has been placed at (' + $scope.robot.position.x_pos + ',' + $scope.robot.position.y_pos + '), ' + $scope.robot.position.angle + '.',
 		  			_class: 'normal'
 		  		});
 		  	}else{
 		  		alert('Please place the robot in a valid position. It falls down from the table.');
-		  		$scope.robot.position.isSet = false;
+		  		$scope.robot.isSet = false;
+		  		$scope.newPosition = {};
 
 		  		$scope.logs.unshift({
 		  			time: moment().format('MM/DD/YYYY h:mm:ss a'),
-		  			events: 'Robot has been placed at (' + $scope.newPosition.xPos + ',' + $scope.newPosition.yPos + '), ' + $scope.newPosition.angle + '. It falls down from the table. Please replace it.',
+		  			events: 'Robot has been placed at (' + $scope.newPosition.x_pos + ',' + $scope.newPosition.y_pos + '), ' + $scope.newPosition.angle + '. It falls down from the table. Please replace it.',
 		  			_class: 'error'
 		  		});
-		  	}
+		  	}*/
 		  }else{
 		  	alert('Please enter x,y values of the position and set its direction.');
 		  }
   	};
 
-  	$scope.checkPosition = function(myPosition, bounds){
-  		if(myPosition.xPos <= bounds.max_x && myPosition.yPos <= bounds.max_y && myPosition.xPos >=bounds.min_x && myPosition.yPos >= bounds.min_y){
+  	//Check if the position is within the bounds
+  	$scope.checkPosition = function(my_position, bounds){
+  		if(my_position.x_pos <= bounds.max_x && my_position.y_pos <= bounds.max_y && my_position.x_pos >=bounds.min_x && my_position.y_pos >= bounds.min_y){
   			return true;
   		}else{
   			return false;
   		}
   	};
 
+  	/* Rotate robot function */
+  	//Will check if the robot has been placed at a valid position first
+  	//Robot will face the new direction accroding to this action but stay at the same position
   	$scope.rotate = function(direction){
-  		if(!$scope.robot.position.isSet){
+  		if(!$scope.robot.isSet){
   			alert('Please place your robot first');
   		}else{
-  			var index = $scope.angles.indexOf($scope.robot.position.angle);
-  			var new_index = '';
-  			switch(direction){
-  				case 'left':
-  					new_index = (index > 0) ? index - 1 : $scope.angles.length - 1;
-  					break;
-  				case 'right':
-  					new_index = (index < $scope.angles.length - 1) ? index + 1 : 0;
-  					break;
-  			}
+  			dataService.rotateRobot(direction).then(function(res){
+  				$scope.robot.position = res.data;
 
-  			$scope.robot.position.angle = $scope.angles[new_index];
-
-  			$scope.logs.unshift({
-	  			time: moment().format('MM/DD/YYYY h:mm:ss a'),
-	  			events: 'Robot has rotated and turned left. Now it is at (' + $scope.robot.position.xPos + ',' + $scope.robot.position.yPos + '), ' + $scope.robot.position.angle + '.',
-	  			_class: 'normal'
-	  		});
+  				$scope.logs.unshift({
+		  			time: moment().format('MM/DD/YYYY h:mm:ss a'),
+		  			events: 'Robot has rotated and turned ' + direction + '. Now it is at (' + $scope.robot.position.x_pos + ',' + $scope.robot.position.y_pos + '), ' + $scope.robot.position.angle + '.',
+		  			_class: 'normal'
+		  		});
+  			});
   		}
   	};
 
+  	/* Move robot function */
+  	//Will check if the robot has been placed at a valid position first
+  	//Robot will move one step towards the current direction
   	$scope.move = function(){
-  		if(!$scope.robot.position.isSet){
+  		if(!$scope.robot.isSet){
   			alert('Please place your robot first');
   		}else{
-  			$scope.newPosition = $scope.robot.position;
-
-	  		//Update the position based on the current direction
-	  		switch($scope.robot.position.angle){
-	  			case "EAST":
-	  				$scope.newPosition.xPos = parseInt($scope.robot.position.xPos) + 1;
-	  				break;
-	  			case "SOUTH":
-	  				$scope.newPosition.yPos = parseInt($scope.robot.position.yPos) - 1;
-	  				break;
-	  			case "WEST":
-	  				$scope.newPosition.xPos = parseInt($scope.robot.position.xPos) - 1;
-	  				break;
-	  			case "NORTH":
-	  				$scope.newPosition.yPos = parseInt($scope.robot.position.yPos) + 1;
-	  				break;
-	  		}
-
-	  		if($scope.checkPosition($scope.newPosition, $scope.bounds)){
-	  			$scope.robot.position = $scope.newPosition;
-
+		  	dataService.moveRobot().then(function(res){
+		  		$scope.robot.position = res.data;
 		  		$scope.logs.unshift({
 		  			time: moment().format('MM/DD/YYYY h:mm:ss a'),
-		  			events: 'Robot moved forward. Now it is at (' + $scope.robot.position.xPos + ',' + $scope.robot.position.yPos + '), ' + $scope.robot.position.angle + '.',
+		  			events: 'Robot moved forward. Now it is at (' + $scope.robot.position.x_pos + ',' + $scope.robot.position.y_pos + '), ' + $scope.robot.position.angle + '.',
 		  			_class: 'normal'
 		  		});
-		  	}else{
-		  		$scope.robot.position.isSet = false;
-		  		$scope.robot.position = {};
-		  		$scope.newPosition = {};
-
-		  		$scope.logs.unshift({
-		  			time: moment().format('MM/DD/YYYY h:mm:ss a'),
-		  			events: 'Robot falls down from the table. Please replace it.',
-		  			_class: 'error'
-		  		});
-		  	}
+		  	});
 	  	}
   	};
-  });
+  }]);
